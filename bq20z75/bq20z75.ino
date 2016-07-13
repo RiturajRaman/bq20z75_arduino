@@ -1,3 +1,18 @@
+/*===================================================================================================
+ * file          :       bq20z75.ino
+ *
+ * brief         :       This file contains the arduino sketch for reading and writing to bq20z75 registers.
+ *
+ * author        :       r.ramanbits@gmail.com
+ *
+ * copyright     :       The code contained herein is licensed under the GNU General Public License.
+ *                       You may obtain a copy of the GNU General Public License Version 2 or later
+ *                       at the following locations:
+ *                       http://www.opensource.org/licenses/gpl-license.html
+ *                       http://www.gnu.org/copyleft/gpl.html
+ *=================================================================================================*/
+
+
 #include <Wire.h>
 int count = 0;
 int address = 0x0b;  //decimal address of sensor 1
@@ -41,6 +56,7 @@ void write(int address, int reg, int data)
   Wire.endTransmission();
 }
 
+//gives values of the individual bytes (2 byte registers)
 void read(int address, int reg) 
 {
   int val;
@@ -59,6 +75,7 @@ void read(int address, int reg)
   
 }
 
+//gives the decimal value as output (for 2 byte registers)
 void read_expt(int address, int reg) 
 {
   int lsb, msb;
